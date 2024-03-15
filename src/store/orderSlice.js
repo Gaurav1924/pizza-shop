@@ -1,20 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 const orderSlice = createSlice({
-    name : "app" ,
-    initialState : {
-        orderDelivered : 0  ,
-        orders : []
+  name: "app",
+  initialState: {
+    orderDelivered: 0,
+    orders: [],
+  },
+  reducers: {
+    setOrderDelivered: (state, action) => {
+      state.orderDelivered = state.orderDelivered + 1;
     },
-    reducers : {
-        setOrderDelivered : (state , action) => {
-             state.orderDelivered = state.orderDelivered + 1 ;
-        } ,
-        updateOrdersArr : (state, action) => {
-            // console.log("object sent",action.payload) ; 
-            state.orders = action.payload ;
-             
-        }
-    }
-})
-export const {setOrderDelivered,updateOrdersArr} = orderSlice.actions ;
-export default orderSlice.reducer ; 
+    updateOrdersArr: (state, action) => {
+      state.orders = action.payload;
+    },
+  },
+});
+export const { setOrderDelivered, updateOrdersArr } = orderSlice.actions;
+export default orderSlice.reducer;
