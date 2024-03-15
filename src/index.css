@@ -1,0 +1,124 @@
+body {
+  margin: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  }
+
+form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  font-size: 14px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pizza-card {
+  width: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.red {
+  color: red;
+}
+.pizza-section {
+  display: flex;
+  flex-direction: column;
+}
+.orders-section {
+  display: flex;
+  justify-content: space-around;
+  border : 1px solid black ;
+}
+
+.order-placed .order-making .order-ready .order-picked {
+  border: 1px solid black;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-around;
+}
+.main-section-table {
+  border: 1px solid black;
+}
+
+.main-section-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.main-section-table th, .main-section-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.main-section-table th {
+  background-color: #f2f2f2;
+}
+
+.main-section-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.main-section-table tbody tr:hover {
+  background-color: #ddd;
+}
+
+.main-section-table button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.main-section-table button:hover {
+  background-color: #0056b3;
+}
