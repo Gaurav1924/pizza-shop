@@ -1,32 +1,25 @@
 // MainSection.js
-import React from 'react';
-import { useSelector } from 'react-redux';
-
-// function MainSection({ orders, cancelOrder, moveToNextStage }) {
-//   return (
-//     <div>
-//       <ul>
-//         {orders.map(order => (
-//           ((order.stage === 'Order Placed') || (order.stage === 'Order In Making')) &&  <li key={order.id}>
-//             <p>Order Id: {order.id}</p>
-//             <p>Stage: {order.stage}</p>
-//             <p>Time Spent: {order.timeSpent}</p>
-//             {/* <button onClick={() => moveToNextStage(order.id)}>Next Stage</button> */}
-//             <button onClick={() => cancelOrder(order.id)}>Cancel</button>
-//           </li>
-//         ))}
-//       </ul>
-      
-//     </div>
-//   );
-// }
-
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateOrdersArr } from "../store/orderSlice";
+import ElapsedTime from "./ElapsedTime";
 const MainSection = () => {
-  const orderReducer = useSelector(store => store.order)
+  const orderReducer = useSelector((store) => store.order);
+  const dispatch = useDispatch();
+
+  const cancelOrder = (orderId) => {
+    let newOrderArr = orderReducer.orders.filter((order) => {
+      if (orderId !== order.id) {
+        return order;
+      }
+    });
+    dispatch(updateOrdersArr(newOrderArr));
+  };
+
   return (
-    <table className='main-section-table'>
+    <table className="main-section-table">
       <thead>
-        <tr>
+        <tr style={{ fontWeight: "100" }}>
           <th>Order Id</th>
           <th>Stage</th>
           <th>Total Time spent</th>
@@ -38,12 +31,25 @@ const MainSection = () => {
           <tr key={order.id}>
             <td>{order.id}</td>
             <td>{order.stage}</td>
-            <td>{order.email}</td>
-            <td><button>Cancel</button></td>
+            <td>
+              {order.stage === "Order Picked" ? (
+                <p>{order?.totalTimeSpent}</p>
+              ) : (
+                <ElapsedTime
+                  onlyTimeNeeded={true}
+                  startTime={order.createdAt}
+                />
+              )}
+            </td>
+            <td>
+              <button onClick={() => cancelOrder(order.id)}>Cancel</button>
+            </td>
           </tr>
         ))}
       </tbody>
-      {/* <p>Total order delivered: {orderReducer.orders.length}</p>  */}
+      <p style={{ fontWeight: "800" }}>
+        Total order delivered: {orderReducer.orderDelivered}
+      </p>
     </table>
   );
 };

@@ -9,43 +9,25 @@ import PizzaSection from './components/PizzaSection';
 
 function App() {
   const [orders, setOrders] = useState([]);
-  const orderReducer = useSelector(store => store.order) // only fetch the store.order
-  console.log(orderReducer) 
+  const orderReducer = useSelector(store => store.order) 
+  // console.log(orderReducer) 
   
-  const dispatch = useDispatch() 
-  // useEffect based on some dependency, not on usual re-render
-  
-  const placeOrder = (order) => {
-    if (orders.length < 10) {                     
-      setOrders([...orders, order]);      // can't use push. need to use Setorders. additional order getting stored
+  // const dispatch = useDispatch()  
 
-    } else {
-      alert("Not taking any order for now");
-    }
-  };
+ 
 
-  const cancelOrder = (orderId) => {
-    setOrders(orders.filter(order => order.id !== orderId));
-  };
-
-  const moveToNextStage = (orderId) => {
-    setOrders(orders.map(order =>
-      order.id === orderId ? { ...order, stage: getNextStage(order.stage) } : order
-    ));
-  };
-
-  const getNextStage = (currentStage) => {
-    switch (currentStage) {
-      case 'Order Placed':
-        return 'Order in Making';
-      case 'Order in Making':
-        return 'Order Ready';
-      case 'Order Ready':
-        return 'Order Picked';
-      default:
-        return currentStage;
-    }
-  };
+  // const getNextStage = (currentStage) => {
+  //   switch (currentStage) {
+  //     case 'Order Placed':
+  //       return 'Order in Making';
+  //     case 'Order in Making':
+  //       return 'Order Ready';
+  //     case 'Order Ready':
+  //       return 'Order Picked';
+  //     default:
+  //       return currentStage;
+  //   }
+  // };
 
 
   
@@ -58,8 +40,6 @@ function App() {
         <h2>Main Section</h2>
         <MainSection
           orders={orders}
-          cancelOrder={cancelOrder}
-          moveToNextStage={moveToNextStage}
         />
       </div>
     </div>
