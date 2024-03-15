@@ -10,12 +10,11 @@ const orderSlice = createSlice({
              state.orderDelivered = state.orderDelivered + 1 ;
         } ,
         updateOrdersArr : (state, action) => {
-            //  console.log("inside updatesOrderArr state action" , state,action) ;
-             state.orders = action.payload ;
+            // console.log("object sent",action.payload) ; 
+            state.orders = action.payload ;
+             
         }
     }
 })
 export const {setOrderDelivered,updateOrdersArr} = orderSlice.actions ;
-export default orderSlice.reducer ;
-
-// central store based on action - useDispatch 
+export default orderSlice.reducer ; 
