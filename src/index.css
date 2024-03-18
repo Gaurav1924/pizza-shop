@@ -73,7 +73,7 @@ button:hover {
 }
 .orders-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border : 1px solid black ;
 }
 
@@ -81,14 +81,13 @@ button:hover {
   display: flex; 
   flex-direction: column;
   border-right: 1px solid black ;
-  align-items: center;
-  padding: 0 40px;
+  padding: 0 37px;
 }
 .order-picked{
   display: flex; 
   flex-direction: column;
   border-right: 1px solid black ;
-  padding: 0 40px;
+  padding: 0 37px;
 }
 .main-section-table {
   border: 1px solid black;
@@ -96,7 +95,7 @@ button:hover {
 
 .main-section-table {
   width: 100%;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
 }
 
 .main-section-table th, .main-section-table td {
