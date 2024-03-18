@@ -47,7 +47,7 @@ const MainSection = () => {
           </tr>
         ))}
       </tbody>
-      <p style={{ fontWeight: "800" }}>
+      <p style={{ fontWeight: "600" }}>
         Total order delivered: {orderReducer.orderDelivered}
       </p>
     </table>
